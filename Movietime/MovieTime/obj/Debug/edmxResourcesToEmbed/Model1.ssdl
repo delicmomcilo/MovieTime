@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebFilmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DBFilm">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Filmnavn" Type="nvarchar(max)" />
+    <Property Name="Pris" Type="float" Nullable="false" />
+    <Property Name="Filmbilde" Type="nvarchar(max)" />
+    <Property Name="Beskrivelse" Type="nvarchar(max)" />
+    <Property Name="sjanger_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="DBKunde">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fornavn" Type="nvarchar(max)" />
+    <Property Name="Etternavn" Type="nvarchar(max)" />
+    <Property Name="Fodselsdag" Type="datetime" Nullable="false" />
+    <Property Name="Adresse" Type="nvarchar(max)" />
+    <Property Name="Mobilnummer" Type="int" Nullable="false" />
+    <Property Name="Epost" Type="nvarchar(max)" />
+    <Property Name="Passord" Type="varbinary(max)" />
+    <Property Name="Salt" Type="varbinary(max)" />
+    <Property Name="Poststed_Postnr" Type="int" />
+  </EntityType>
+  <EntityType Name="DBOrdre">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dato" Type="datetime" Nullable="false" />
+    <Property Name="Kunde_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="DBOrdrelinje">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Film_ID" Type="int" />
+    <Property Name="Ordre_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="DBPoststed">
+    <Key>
+      <PropertyRef Name="Postnr" />
+    </Key>
+    <Property Name="Postnr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Poststed" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DBSjanger">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sjanger" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_dbo_DBFilm_dbo_DBSjanger_sjanger_ID">
+    <End Role="DBSjanger" Type="Self.DBSjanger" Multiplicity="0..1" />
+    <End Role="DBFilm" Type="Self.DBFilm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DBSjanger">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DBFilm">
+        <PropertyRef Name="sjanger_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DBKunde_dbo_DBPoststed_Poststed_Postnr">
+    <End Role="DBPoststed" Type="Self.DBPoststed" Multiplicity="0..1" />
+    <End Role="DBKunde" Type="Self.DBKunde" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DBPoststed">
+        <PropertyRef Name="Postnr" />
+      </Principal>
+      <Dependent Role="DBKunde">
+        <PropertyRef Name="Poststed_Postnr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DBOrdre_dbo_DBKunde_Kunde_ID">
+    <End Role="DBKunde" Type="Self.DBKunde" Multiplicity="0..1" />
+    <End Role="DBOrdre" Type="Self.DBOrdre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DBKunde">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DBOrdre">
+        <PropertyRef Name="Kunde_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DBOrdrelinje_dbo_DBFilm_Film_ID">
+    <End Role="DBFilm" Type="Self.DBFilm" Multiplicity="0..1" />
+    <End Role="DBOrdrelinje" Type="Self.DBOrdrelinje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DBFilm">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DBOrdrelinje">
+        <PropertyRef Name="Film_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_DBOrdrelinje_dbo_DBOrdre_Ordre_ID">
+    <End Role="DBOrdre" Type="Self.DBOrdre" Multiplicity="0..1" />
+    <End Role="DBOrdrelinje" Type="Self.DBOrdrelinje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DBOrdre">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DBOrdrelinje">
+        <PropertyRef Name="Ordre_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WebFilmModelStoreContainer">
+    <EntitySet Name="DBFilm" EntityType="Self.DBFilm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DBKunde" EntityType="Self.DBKunde" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DBOrdre" EntityType="Self.DBOrdre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DBOrdrelinje" EntityType="Self.DBOrdrelinje" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DBPoststed" EntityType="Self.DBPoststed" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DBSjanger" EntityType="Self.DBSjanger" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_DBFilm_dbo_DBSjanger_sjanger_ID" Association="Self.FK_dbo_DBFilm_dbo_DBSjanger_sjanger_ID">
+      <End Role="DBSjanger" EntitySet="DBSjanger" />
+      <End Role="DBFilm" EntitySet="DBFilm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DBKunde_dbo_DBPoststed_Poststed_Postnr" Association="Self.FK_dbo_DBKunde_dbo_DBPoststed_Poststed_Postnr">
+      <End Role="DBPoststed" EntitySet="DBPoststed" />
+      <End Role="DBKunde" EntitySet="DBKunde" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DBOrdre_dbo_DBKunde_Kunde_ID" Association="Self.FK_dbo_DBOrdre_dbo_DBKunde_Kunde_ID">
+      <End Role="DBKunde" EntitySet="DBKunde" />
+      <End Role="DBOrdre" EntitySet="DBOrdre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DBOrdrelinje_dbo_DBFilm_Film_ID" Association="Self.FK_dbo_DBOrdrelinje_dbo_DBFilm_Film_ID">
+      <End Role="DBFilm" EntitySet="DBFilm" />
+      <End Role="DBOrdrelinje" EntitySet="DBOrdrelinje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_DBOrdrelinje_dbo_DBOrdre_Ordre_ID" Association="Self.FK_dbo_DBOrdrelinje_dbo_DBOrdre_Ordre_ID">
+      <End Role="DBOrdre" EntitySet="DBOrdre" />
+      <End Role="DBOrdrelinje" EntitySet="DBOrdrelinje" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

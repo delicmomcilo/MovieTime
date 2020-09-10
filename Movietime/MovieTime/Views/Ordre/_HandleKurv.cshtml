@@ -1,0 +1,55 @@
+﻿@model Model.HandleKurv
+
+
+<a class="nav-link dropdown-toggle-handlekurv text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fa fa-shopping-cart"></i><span class="kurv-badge ml-2">@Model.Antall</span>
+</a>
+<div class="text-white dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+
+    <div class="container">
+        <div class="handlekurv">
+            @{
+                if (Model != null)
+                {
+                    <div class="handlekurv-header">
+                        <i class="fa fa-shopping-cart cart-icon"></i><span class="kurv-badge">@Model.Antall</span>
+                        <div class="handlekurv-total">
+                            <span class="lighter-text">Total: Kr @Model.TotalPris ,-</span>
+                            <span class="main-color-text"></span>
+                        </div>
+                    </div> 
+
+                    <ul class="handlekurv-items">
+                        @{ foreach (var vareLinje in Model.HandleKurvLinjer)
+                            {
+                                <li class="clearfix">
+                                    <img src="@vareLinje.Film.Filmbilde" alt="@vareLinje.Film.Filmnavn" style="width: 70px; margin-left: -25px;" />
+                                    <span class="item-name">@vareLinje.Film.Filmnavn</span>
+
+                                    <a href="@Url.Action("FjernFilm","Ordre", new { filmID = vareLinje.Film.ID })">
+                                        <span class="item-remove"><i class="fas fa-times"></i></span>
+                                    </a>
+                                    <span class="item-price">kr @vareLinje.Pris </span>
+                                    <span class="item-quantity">Antall: @vareLinje.Antall</span>
+
+                                </li>
+
+                            }
+                        }
+                    </ul>
+                    <a href="@Url.Action("Kassen","Ordre")" class="button-kurv">Til Kassen</a>
+                }
+                else
+                {
+                    <p>Du har ingen filmer i handlekurven</p>
+
+                }
+
+            }
+
+
+
+        </div> 
+    </div> 
+</div>

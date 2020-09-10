@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Model.Film>
+
+<body class="FilmSide">
+    <div class="body-content-main">
+        <div class="row">
+            <div class="d-inline-block">
+                <h2 style="color: white;">Filmer</h2>
+            </div>
+            <div class="d-inline-block">
+                <form action="">
+                    <div class="form-group">
+                        <select class="form-control" id="dropDown" style="margin-left:15px;">
+                            <option value="" selected disabled>Vennligst velg en sjanger</option>
+                            <option value="-1" selected >Vis alle</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+
+        <div class="row" id="filmer">
+
+        </div>
+
+        @Html.Partial("_FilmModal");
+
+    </div>
+</body>
+
+

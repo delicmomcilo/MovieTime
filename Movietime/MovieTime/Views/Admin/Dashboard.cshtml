@@ -1,0 +1,63 @@
+﻿<style>
+    
+</style>
+
+<div class="container mt-100 bg-light p-5">
+    @if (ViewBag.Error != null)
+    {
+        <br />
+        <div class="alert alert-danger" role="alert">
+            <strong>Ops!</strong> @ViewBag.Error
+        </div>
+
+    }
+    @if (ViewBag.Melding != null)
+    {
+        <br />
+        <div class="alert alert-success" role="alert">
+            <strong> @ViewBag.Melding</strong>
+        </div>
+
+    }
+    <div class="row">
+        @{ Html.RenderAction("_DashboardInfo", "Admin");}
+
+    </div>
+
+    <div class="row p-3">
+        @{ Html.RenderAction("_KundeListe", "Admin", new { MedRettighet = 0 });}
+    </div>
+    <div class="row p-3">
+        @{ Html.RenderAction("_KundeListe", "Admin", new { MedRettighet = 1 });}
+    </div>
+
+
+    <div class="row p-3">
+        @{ Html.RenderAction("_FilmListe", "Admin");}
+    </div>
+
+    <div class="row p-3">
+        @{ Html.RenderAction("_OrdreListe", "Admin");}
+    </div>
+
+    <div class="row p-3">
+        @{ Html.RenderAction("_EndringListe", "Admin");}
+    </div>
+
+    <div class="row p-3 scrollable-table" id="LogContainer">
+    </div>
+
+</div>
+
+
+<script>
+
+    $.ajax({
+        url:  "/Content/movietime-log.txt",
+        dataType: "text",
+        success: function (data) {
+            $("#LogContainer").html(data);
+        }
+    });
+    
+</script>

@@ -1,0 +1,37 @@
+﻿@model List<Model.Ordre>
+
+<row class="col-12 p-3">
+    <h3 class="float-left">Ordrer</h3>
+</row>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Dato</th>
+            <th scope="col">Navn</th>
+            <th scope="col">Total pris</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count < 1 )
+        {
+            <tr>Du har ingen ordre</tr>
+        }
+        @foreach (var ordre in Model)
+        {
+            <tr>
+                <th scope="row">@ordre.ID</th>
+                <td>@ordre.Dato</td>
+                <td>@ordre.Kunde.Fornavn @ordre.Kunde.Etternavn</td>
+                <td>Kr @ordre.TotalPris ,-</td>
+                <td>
+                    <a href="@Url.Action("VisKundeOrdre","Admin", new { ordreID = ordre.ID, kID = ordre.Kunde.ID })" class="btn btn-success" role="button">Vis Ordre</a>
+                    @Html.ActionLink("Slett", "SlettOrdre", new { oID = ordre.ID }, new { @class = "slettKnapp btn btn-danger" })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,79 @@
+﻿@model Model.ViewModel.KundeLoginViewModel
+
+<style type="text/css">
+    body {
+        color: #fff;
+        font-family: 'Roboto', sans-serif;
+        background-image: url("/Content/Images/tmn.jpg");
+    }
+
+    .login-skjema form {
+        margin-top: 30%;
+        color: #999;
+        border-radius: 3px;
+        margin-bottom: 15px;
+        background: #f2f3f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+
+    .login-skjema {
+        width: 400px;
+        margin: 0 auto;
+        padding: 30px 0;
+    }
+
+    h2 {
+        color: #999 !important;
+    }
+
+    h4 {
+        color: #999 !important;
+    }
+
+    p {
+        color: #999 !important;
+    }
+</style>
+
+<body>
+    <div class="login-skjema">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken();
+
+            <h2>Logg inn</h2>
+            <p class="hint-text">Logg inn, eller registrer en bruker.</p>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group" style="margin-right: 60px;">
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Epost, new { htmlAttributes = new { @class = "form-control", placeholder = "E-post" } })
+                    @Html.ValidationMessageFor(model => model.Epost, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.PasswordFor(model => model.Passord, new { @class = "form-control", placeholder = "Passord" })
+                    @Html.ValidationMessageFor(model => model.Passord, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Logg inn</button>
+                    @if (ViewBag.Error != null)
+                    {
+                        <br />
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Ops!</strong> @ViewBag.Error
+                        </div>
+
+                    }
+                </div>
+            </div>
+        }
+        <div class="text-center">
+            Har du ikke en konto?<a href="@Url.Action("Registrer", "Kunde")">Registrer</a>
+        </div>
+    </div>
+</body>
+
+
+<div>
+    @Html.ActionLink("Tilbake til forsiden", "Hjem")
+</div>

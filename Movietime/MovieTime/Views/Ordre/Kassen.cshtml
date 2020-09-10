@@ -1,0 +1,75 @@
+﻿@model Model.HandleKurv
+
+<div class="container mt-100 bg-light p-5">
+    <div class="py-5 text-center">
+        <h2>Kassen</h2>
+        <p class="lead">Nedenfor ser du en oversikt over filmene du har lagt i din handlekurv, du kan velge å betale, eller<a href="@Url.Action("Filmer", "Film")"> fortsette å handle.</a></p>
+    </div>
+
+    <div class="row">
+
+        <div class="col">
+
+            @using (Html.BeginForm("Betal", "Ordre"))
+            {
+                @Html.AntiForgeryToken();
+                if (ViewBag.Error != null)
+                {
+                    <br />
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Ops!</strong> @ViewBag.Error
+                    </div>
+
+                }
+                <div class="mb-3">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Din handlekurv</span>
+                        <span class="badge badge-secondary badge-pill">@Model.Antall</span>
+                    </h4>
+                    @{
+                        <ul class="list-group mb-3">
+                            @foreach (var vareLinje in Model.HandleKurvLinjer)
+                            {
+                                <li class="list-group-item d-flex justify-content-between lh-condensed">
+
+                                    <div class="clearfix col-sm d-flex align-items-center h-100 pr-0">
+                                        <img src="@vareLinje.Film.Filmbilde" class="float-left" alt="@vareLinje.Film.Filmnavn" style="width: 70px;">
+                                        <div>
+                                            <h6 class="my-0 align-middle">@vareLinje.Film.Filmnavn</h6>
+                                            <small class="text-muted">Kr @vareLinje.Film.Pris,- pr stk</small>
+                                            <small class="text-muted align-middle ml-5">x @vareLinje.Antall</small>
+                                        </div>
+
+                                        <small class="text-muted align-middle ml-auto">
+                                            <a href="@Url.Action("FjernFilm", "Ordre", new { filmID = vareLinje.Film.ID })"><i class="fas fa-times"></i></a><br />
+                                            Kr @vareLinje.Pris ,-
+                                        </small>
+
+                                    </div>
+
+                                </li>
+
+                            }
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Total (NOK)</span>
+                                <strong>Kr @Model.TotalPris</strong>
+                            </li>
+                        </ul>
+                    }
+                </div>
+
+
+                <hr class="mb-4">
+
+                <h4 class="mb-3">Betaling</h4>
+
+                { Html.RenderPartial("_KredittKort", new Model.ViewModel.KredittKortViewModel()); }
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Betal</button>
+            }
+
+
+        </div>
+    </div>
+</div>
+

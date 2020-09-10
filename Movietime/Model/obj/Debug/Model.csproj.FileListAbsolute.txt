@@ -1,0 +1,6 @@
+C:\Users\lilmomovert\Documents\Webapplikasjoner-Del-1-2018\Webapplikasjoner-Del-1-2018\Model\bin\Debug\Model.dll
+C:\Users\lilmomovert\Documents\Webapplikasjoner-Del-1-2018\Webapplikasjoner-Del-1-2018\Model\bin\Debug\Model.pdb
+C:\Users\lilmomovert\Documents\Webapplikasjoner-Del-1-2018\Webapplikasjoner-Del-1-2018\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\lilmomovert\Documents\Webapplikasjoner-Del-1-2018\Webapplikasjoner-Del-1-2018\Model\obj\Debug\Model.dll
+C:\Users\lilmomovert\Documents\Webapplikasjoner-Del-1-2018\Webapplikasjoner-Del-1-2018\Model\obj\Debug\Model.pdb
+C:\Users\lilmomovert\Documents\Webapplikasjoner-Del-1-2018\Webapplikasjoner-Del-1-2018\Model\obj\Debug\Model.csprojAssemblyReference.cache

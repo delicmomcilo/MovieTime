@@ -1,0 +1,48 @@
+﻿@model List<Model.Ordre>
+
+<div class="py-5 text-center">
+    <h2>Ordreoversikt</h2>
+    
+</div>
+
+
+<div class="row">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Ordrenummer</th>
+                <th scope="col">Pris</th>
+                <th scope="col">Dato</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if (Model.Count == 0)
+                {
+                    <tr>
+                        <td><h5>Denne kunden har ikke kjøpt noen filmer</h5></td>
+                    </tr>
+
+                }
+                else
+                {
+                    for (var i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <th scope="row">@Model[i].ID</th>
+                            <td>kr @Model[i].TotalPris,-</td>
+                            <td>@Html.DisplayFor(modelItem => Model[i].Dato)</td>
+                            <td>
+                                <a href="@Url.Action("VisKundeOrdre","Admin", new { ordreID = Model[i].ID, kID = Model[i].Kunde.ID })" class="btn btn-success" role="button">Vis Ordre</a>
+
+                            </td>
+                        </tr>
+
+                    }
+                }
+
+            }
+
+        </tbody>
+    </table>
+</div>

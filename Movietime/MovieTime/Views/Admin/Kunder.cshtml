@@ -1,0 +1,15 @@
+﻿
+<div class="container mt-100 bg-light p-5">
+    <div class="row">
+        @{ Html.RenderAction("_DashboardInfo", "Admin");}
+
+    </div>
+    <div class="row p-3">
+        @{ Html.RenderAction("_KundeListe", "Admin", new { MedRettighet = 0 });}
+        @{ Html.RenderAction("_KundeListe", "Admin", new { MedRettighet = 1 });}
+        @Html.ActionLink("Tilbake til dashboard", "Dashboard")
+
+
+    </div>
+</div>
+

@@ -1,0 +1,37 @@
+﻿@model List<Model.Film>
+
+<row class="col-12 p-3">
+    <h3 class="float-left">Filmer</h3>
+    @Html.ActionLink("Opprett Film", "OpprettFilm", new { }, new { @class = "btn btn-primary float-right" })
+</row>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Filmnavn</th>
+            <th scope="col">Pris</th>
+            <th scope="col">Sjanger</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count < 1)
+        {
+        <th>Du har ingen Filmer</th>
+        }
+        @foreach (var film in Model)
+        {
+            <tr>
+                <th scope="row">@film.ID</th>
+                <td>@film.Filmnavn</td>
+                <td>@film.Pris</td>
+                <td>@film.Sjanger</td>
+                <td>
+                    @Html.ActionLink("Endre", "EndreFilm", new { FilmID = film.ID }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Slett", "SlettFilm", new { FilmID = film.ID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>

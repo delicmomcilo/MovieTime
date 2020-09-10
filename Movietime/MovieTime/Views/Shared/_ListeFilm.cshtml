@@ -1,0 +1,16 @@
+﻿@model Model.Film
+
+
+
+<div class="card mb-4 mx-auto" style="min-width: 15rem; max-width: 18rem; margin-right: 10px" data-toggle="modal" data-target="#filmPopupModal">
+    <div class="card" style="width: 15rem;">
+        <a href="#filmPopupModal" id="filmModal" data-navn="@Model.Filmnavn" data-id="@Model.ID" data-filmbilde="@Model.Filmbilde" data-beskrivelse="@Model.Beskrivelse" data-pris="@Model.Pris" data-sjanger="@Model.Sjanger" data-toggle="modal" data-filmModal="true">
+            <img class="card-img-top" src="@Model.Filmbilde" alt="Card image cap">
+        </a>
+    </div>
+</div>
+
+@Html.Partial("_FilmModal");
+
+
+

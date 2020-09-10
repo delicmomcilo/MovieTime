@@ -1,0 +1,32 @@
+﻿@model Model.ViewModel.PassordViewModel
+
+<h4>Endre passord</h4>
+
+
+@using (Html.BeginForm("EndrePassord", "Kunde"))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.GammeltPassord)
+        @Html.PasswordFor(model => model.GammeltPassord, new { @class = "form-control", placeholder = "Gammelt passord" })
+        @Html.ValidationMessageFor(model => model.GammeltPassord, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.NyttPassord)
+        @Html.PasswordFor(model => model.NyttPassord, new { @class = "form-control", placeholder = "Nytt passord" })
+        @Html.ValidationMessageFor(model => model.NyttPassord, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.NyttPassordBekreft)
+        @Html.PasswordFor(model => model.NyttPassordBekreft, new { @class = "form-control", placeholder = "Bekreft Passord" })
+        @Html.ValidationMessageFor(model => model.NyttPassordBekreft, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <button type="submit" id="btnSubmit" class="btn btn-success btn-lg btn-block">Endre Passord</button>
+    </div>
+
+}
+

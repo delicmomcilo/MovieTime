@@ -1,0 +1,31 @@
+﻿@model Model.Sjanger
+<div class="container mt-100 bg-light p-5">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        if (ViewBag.Error != null)
+        {
+            <br />
+            <div class="alert alert-danger" role="alert">
+                <strong>Ops!</strong> @ViewBag.Error
+            </div>
+
+        }
+        
+        @Html.AntiForgeryToken();
+        <h2>Opprett ny sjanger</h2>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.sjanger)
+            @Html.EditorFor(model => model.sjanger, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.sjanger, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="form-group">
+            <button type="submit" id="btnSubmitt" class="btn btn-success btn-lg btn-block">Lagre Sjanger</button>
+        </div>
+    }
+    <div>
+        @Html.ActionLink("Tilbake til dashboard", "Dashboard")
+    </div>
+</div>

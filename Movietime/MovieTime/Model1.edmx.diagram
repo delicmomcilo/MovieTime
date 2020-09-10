@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="93d87b69997e4b1db7706a6bc39d9206" Name="Diagram1">
+        <EntityTypeShape EntityType="WebFilmModel.DBFilm" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebFilmModel.DBKunde" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebFilmModel.DBOrdre" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebFilmModel.DBOrdrelinje" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebFilmModel.DBPoststed" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebFilmModel.DBSjanger" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="WebFilmModel.FK_dbo_DBFilm_dbo_DBSjanger_sjanger_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="WebFilmModel.FK_dbo_DBOrdrelinje_dbo_DBFilm_Film_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="WebFilmModel.FK_dbo_DBKunde_dbo_DBPoststed_Poststed_Postnr" ManuallyRouted="false" />
+        <AssociationConnector Association="WebFilmModel.FK_dbo_DBOrdre_dbo_DBKunde_Kunde_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="WebFilmModel.FK_dbo_DBOrdrelinje_dbo_DBOrdre_Ordre_ID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

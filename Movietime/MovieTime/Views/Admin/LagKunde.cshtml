@@ -1,0 +1,86 @@
+﻿@model Model.ViewModel.KundeRegistreringViewModel
+
+
+
+<div class="container mt-100 bg-light p-5">
+
+    <div class="registrering-skjema mt-5">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken();
+
+            <h2>Opprett ny bruker</h2>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            if (ViewBag.Error != null)
+            {
+                <br />
+                <div class="alert alert-danger" role="alert">
+                    <strong>Ops!</strong> @ViewBag.Error
+                </div>
+
+            }
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-6">
+                        @Html.LabelFor(model => model.Fornavn)
+                        @Html.EditorFor(model => model.Fornavn, new { htmlAttributes = new { @class = "form-control", placeholder = "Fornavn" } })
+                        @Html.ValidationMessageFor(model => model.Fornavn, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        @Html.LabelFor(model => model.Etternavn)
+                        @Html.EditorFor(model => model.Etternavn, new { htmlAttributes = new { @class = "form-control", placeholder = "Etternavn" } })
+                        @Html.ValidationMessageFor(model => model.Etternavn, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Epost)
+                @Html.EditorFor(model => model.Epost, new { htmlAttributes = new { @class = "form-control", placeholder = "E-post" } })
+                @Html.ValidationMessageFor(model => model.Epost, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Fodselsdag)
+                @Html.EditorFor(model => model.Fodselsdag, new { htmlAttributes = new { @class = "form-control", placeholder = "Fødselsdato" } })
+                @Html.ValidationMessageFor(model => model.Fodselsdag, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Passord)
+                @Html.PasswordFor(model => model.Passord, new { @class = "form-control", placeholder = "Passord" })
+                @Html.ValidationMessageFor(model => model.Passord, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Mobilnummer)
+                @Html.EditorFor(model => model.Mobilnummer, new { htmlAttributes = new { @class = "form-control", @type = "number", placeholder = "Mobilnummer" } })
+                @Html.ValidationMessageFor(model => model.Mobilnummer, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Adresse)
+                @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control", placeholder = "Adresse" } })
+                @Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-6">
+                        @Html.LabelFor(model => model.Postnummer)
+                        @Html.EditorFor(model => model.Postnummer, new { htmlAttributes = new { @class = "form-control", @type = "number", placeholder = "Postnummer" } })
+                        @Html.ValidationMessageFor(model => model.Postnummer, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-6">
+                        @Html.LabelFor(model => model.Poststed)
+                        @Html.EditorFor(model => model.Poststed, new { htmlAttributes = new { @class = "form-control", placeholder = "Poststed" } })
+                        @Html.ValidationMessageFor(model => model.Poststed, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg btn-block">Opprett Bruker</button>
+            </div>
+        }
+    </div>
+
+    <div>
+        @Html.ActionLink("Tilbake til dashboard", "Dashboard")
+    </div>
+</div>

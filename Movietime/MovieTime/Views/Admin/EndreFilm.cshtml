@@ -1,0 +1,183 @@
+﻿@model Model.Film
+
+<style>
+    .filter-option {
+        background-color: white;
+    }
+
+    .bootstrap-select {
+        width: 100% !important;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+
+    body > div.container-fluid.position-absolute.pr-0.pl-0 > div > div.registrering-skjema.mt-5 > form > div:nth-child(5) > div > button {
+        border-color: rgb(206, 212, 218);
+    }
+    #Beskrivelse {
+        width: 100% !important;
+        height: 250px;
+    }
+</style>
+@using (Html.BeginForm("EndreFilm","Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="container mt-100 bg-light p-5">
+
+    <h2>Endre Film</h2>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @if (ViewBag.Error != null)
+    {
+        <br />
+        <div class="alert alert-danger" role="alert">
+            <strong>Ops!</strong> @ViewBag.Error
+        </div>
+
+    }
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Filmnavn)
+        @Html.EditorFor(model => model.Filmnavn, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Filmnavn, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Pris)
+        @Html.EditorFor(model => model.Pris, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Pris, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BildeFil)
+        <div class="image-upload">
+            <label for="file-input">
+                <img id="img" src="@Model.Filmbilde" />
+            </label>
+
+        </div>
+
+        <input id="file-input" type="file" name="BildeFil" src="@Model.Filmbilde" />
+
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Beskrivelse)
+        @Html.TextAreaFor(model => model.Beskrivelse, new { htmlAttributes = new { @class = "form-control", id = "Beskrivelse" } })
+        @Html.ValidationMessageFor(model => model.Beskrivelse, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Sjanger)<br />
+        <select class="selectpicker" required multiple data-live-search="true" data-none-results-text="Fant ingen sjangre" title="Ingen sjanger valgt"></select>
+
+        <br />
+        @Html.HiddenFor(model => model.Sjanger, new { htmlAttributes = new { @id = "selectInput" } })
+
+        <a class="lagSjanger" href="@Url.Action("OpprettSjanger","Admin")">Lag ny sjanger</a>
+    </div>
+
+    <div class="form-group">
+        <label class="fremhevet">
+            @Html.CheckBoxFor(model => model.Fremhevet, new { htmlAttributes = new { @class = "fremhevet" } })
+        </label>
+        @Html.DisplayNameFor(model => model.Fremhevet)
+    </div>
+    <div class="form-group fremhevet-bilde d-none">
+        @Html.LabelFor(model => model.FremhevetBilde)
+        <input type="file" name="FremhevetBildeFil" />
+
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg btn-block">Lagre Film</button>
+    </div>
+    @Html.ActionLink("Tilbake til dashboard", "Dashboard")
+</div>
+}
+
+
+<script>
+    var model = @Html.Raw(Json.Encode(Model));
+    $(function () {
+        
+        HentAlleSjangre();
+
+        $(".fremhevet").click(function () {
+            $(".fremhevet-bilde").toggleClass("d-none");
+
+        });
+
+        $('.selectpicker').on('changed.bs.select', function () {
+
+            selected = $('.selectpicker').val()
+            document.getElementById('Sjanger').value = selected.join(', ');
+
+        });
+        $('#file-input').change(imageOnChange);
+    });
+
+    function createObjectURL(object) {
+        return (window.URL) ? window.URL.createObjectURL(object) : window.webkitURL.createObjectURL(object);
+    }
+
+    function revokeObjectURL(url) {
+        return (window.URL) ? window.URL.revokeObjectURL(url) : window.webkitURL.revokeObjectURL(url);
+    }
+
+    function imageOnChange() {
+        if (this.files.length) {
+            for (var i in this.files) {
+                if (this.files.hasOwnProperty) {
+
+                    var src = createObjectURL(this.files[i]);
+                    var image = new Image();
+                    image.src = src;
+                    $('#img').attr('src', src);
+                }  
+            }
+        }
+    }
+
+    function HentAlleSjangre() {
+        $.ajax({
+            url: '/Film/HentAlleSjangreJson',
+            type: 'GET',
+            dataType: 'json',
+            success: function (jsSjanger) {
+                VisDropDown(jsSjanger);
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+
+    }
+
+
+    function VisDropDown(jsSjanger) {
+        var utStreng = "";
+        var eksisterendeSjanger = model.Sjanger.split(', ');
+        var valgt = "";
+
+        for (var y = 0; y < jsSjanger.length; y++) {
+            for (var i = 0; i < eksisterendeSjanger.length; i++) {
+                if (eksisterendeSjanger[i] === jsSjanger[y].sjanger) {
+                    valgt = "selected";
+                } 
+            }
+            utStreng += "<option "+valgt+" value='" + jsSjanger[y].sjanger + "'>" + jsSjanger[y].sjanger + "</option>";
+            valgt = "";
+        }
+        $(".selectpicker").append(utStreng);
+        $('.selectpicker').selectpicker('refresh');
+        }
+        
+
+
+  
+</script>

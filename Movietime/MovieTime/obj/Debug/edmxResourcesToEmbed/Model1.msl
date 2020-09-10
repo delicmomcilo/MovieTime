@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WebFilmModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="DBFilms">
+      <EntityTypeMapping TypeName="WebFilmModel.DBFilm">
+        <MappingFragment StoreEntitySet="DBFilm">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Filmnavn" ColumnName="Filmnavn" />
+          <ScalarProperty Name="Pris" ColumnName="Pris" />
+          <ScalarProperty Name="Filmbilde" ColumnName="Filmbilde" />
+          <ScalarProperty Name="Beskrivelse" ColumnName="Beskrivelse" />
+          <ScalarProperty Name="sjanger_ID" ColumnName="sjanger_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBKundes">
+      <EntityTypeMapping TypeName="WebFilmModel.DBKunde">
+        <MappingFragment StoreEntitySet="DBKunde">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Fornavn" ColumnName="Fornavn" />
+          <ScalarProperty Name="Etternavn" ColumnName="Etternavn" />
+          <ScalarProperty Name="Fodselsdag" ColumnName="Fodselsdag" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="Mobilnummer" ColumnName="Mobilnummer" />
+          <ScalarProperty Name="Epost" ColumnName="Epost" />
+          <ScalarProperty Name="Passord" ColumnName="Passord" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+          <ScalarProperty Name="Poststed_Postnr" ColumnName="Poststed_Postnr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBOrdres">
+      <EntityTypeMapping TypeName="WebFilmModel.DBOrdre">
+        <MappingFragment StoreEntitySet="DBOrdre">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Dato" ColumnName="Dato" />
+          <ScalarProperty Name="Kunde_ID" ColumnName="Kunde_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBOrdrelinjes">
+      <EntityTypeMapping TypeName="WebFilmModel.DBOrdrelinje">
+        <MappingFragment StoreEntitySet="DBOrdrelinje">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
+          <ScalarProperty Name="Ordre_ID" ColumnName="Ordre_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBPoststeds">
+      <EntityTypeMapping TypeName="WebFilmModel.DBPoststed">
+        <MappingFragment StoreEntitySet="DBPoststed">
+          <ScalarProperty Name="Postnr" ColumnName="Postnr" />
+          <ScalarProperty Name="Poststed" ColumnName="Poststed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBSjangers">
+      <EntityTypeMapping TypeName="WebFilmModel.DBSjanger">
+        <MappingFragment StoreEntitySet="DBSjanger">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Sjanger" ColumnName="Sjanger" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

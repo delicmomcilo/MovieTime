@@ -1,0 +1,33 @@
+﻿@model Model.ViewModel.DashboardInfoViewModel
+
+<div class="col-sm">
+    <div class="card card-inverse salg center py-4">
+        <a href="@Url.Action("Ordrer", "Admin")">
+            <div class="card-block card-title">
+                <h1 class="m-b-2"><i class="fa fa-dollar-sign" style="color: white;"></i></h1>
+                <h6 class="text-light">@Model.TotaltSalg kr</h6>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="col-sm">
+    <div class="card card-inverse filmer center py-4">
+        <a href="@Url.Action("Filmer", "Admin")">
+            <div class="card-block card-title">
+                <h1 class="m-b-2"><i class="fa fa-film" style="color: white;"></i></h1>
+                <h6 class="text-light">@Model.AntallFilmer Filmer</h6>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="col-sm">
+    <div class="card card-inverse brukere center py-4">
+        <a href="@Url.Action("Kunder","Admin")">
+            <div class="card-block card-title">
+                <h1 class="m-b-2"><i class="fas fa-users" style="color: white;"></i></h1>
+                <h6 class="text-light">@Model.AntallKunder kunder</h6>
+            </div>
+        </a>
+    </div>
+</div>
+

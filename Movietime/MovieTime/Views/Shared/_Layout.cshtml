@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Kjøp filmer på nett</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="~/Content/bootstrap-select.min.css" />
+</head>
+<body>
+
+    <div>
+        <nav class="navbar fixed-top navbar-expand-sm">
+            <a id="movieButton" style="margin-left: 3%; " class="navbar-brand text-white btn btn-danger btn-group-lg" href="@Url.Action("Hjem", "Home")">Movie Time</a>
+            <button class="navbar-toggler navbar-dark" data-toggle="collapse" data-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ml-auto">
+                    @if (Session["kID"] != null && Session["Admin"] == null)
+                    {
+
+                        <li class="nav-item dropdown" id="handlekurv">
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="@Url.Action("Filmer","Film")">Filmer</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @Session["Navn"]
+                            </a>
+                            <div class="text-white dropdown-menu ml-auto" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="@Url.Action("Bestillinger","Ordre")">Mine Filmer</a>
+                                <a class="dropdown-item" href="@Url.Action("Profil", "Kunde")">Min Profil</a>
+                                <a class="dropdown-item" href="@Url.Action("Loggut","Kunde")">Logg Ut</a>
+                            </div>
+                        </li>
+                    }
+                    else if (Session["kID"] != null && Session["Admin"] != null)
+                    {
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dashboard
+                            </a>
+                            <div class="text-white dropdown-menu ml-auto" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="@Url.Action("Dashboard","Admin")">Dashboard</a>
+                                <a class="dropdown-item" href="@Url.Action("Ordrer","Admin")">Ordrer</a>
+                                <a class="dropdown-item" href="@Url.Action("Kunder","Admin")">Kunder</a>
+                                <a class="dropdown-item" href="@Url.Action("Filmer","Admin")">Filmer</a>
+
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @Session["Navn"]
+                            </a>
+                            <div class="text-white dropdown-menu ml-auto" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="@Url.Action("Profil", "Kunde")">Min Profil</a>
+                                <a class="dropdown-item" href="@Url.Action("Loggut","Kunde")">Logg Ut</a>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li id="registrer" class="text-white">
+                            <a class="navbar-brand text-white btn btn-info btn-group-lg bg-success" href="@Url.Action("Registrer","Kunde")">Register</a>
+                        </li>
+                        <li class="text-white">
+                            <a class="btn btn-primary navbar-brand text-white" href="@Url.Action("Login","Kunde")">Logg inn</a>
+                        </li>
+
+                    }
+                </ul>
+            </div>
+
+        </nav>
+
+
+    </div>
+
+    <div class="container-fluid position-absolute pr-0 pl-0" style="top:0;">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Movie Time</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/Main.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/bootstrap-select.min.js"></script>
+
+
+
+</body>
+</html>

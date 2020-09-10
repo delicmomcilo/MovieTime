@@ -1,0 +1,107 @@
+﻿@model List<Model.ViewModel.KundeEndreViewModel>
+
+<row class="col-12 p-3">
+    @if (Model.Count > 0)
+    {
+
+        if (Model[0].ErAdmin == false)
+        {
+            <h3 class="float-left">Kunder</h3>
+
+        }
+        else
+        {
+            <h3 class="float-left">Administratorer</h3>
+
+        }
+    }
+    @Html.ActionLink("Opprett bruker", "LagKunde", new { }, new { @class = "btn btn-primary float-right" })
+
+
+</row>
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Fornavn</th>
+            <th scope="col">Etternavn</th>
+            <th scope="col">Fødselsdato</th>
+            <th scope="col">Mobilnummer</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">E-post</th>
+            <th scope="col">Postnummer</th>
+            <th scope="col">Poststed</th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count < 1)
+        {
+        <th>Du har ingen brukere</th>
+        }
+        @foreach (var kunde in Model)
+        {
+            <tr>
+                @Html.HiddenFor(model => kunde.ID, new { @class = "endreModel" })
+                <td>
+                    <div class="visModel">
+                        @Html.DisplayFor(model => kunde.Fornavn)
+
+                    </div>
+                </td>
+                <td>
+                    <div class="visModel">
+                        @Html.DisplayFor(model => kunde.Etternavn)
+                    </div>
+                </td>
+                <td>
+                    <div class="visModel">
+                        @Html.DisplayFor(model => kunde.Fodselsdag)
+                    </div>
+                   
+                </td>
+                <td>
+                    <div class="visModel">
+                        @Html.DisplayFor(model => kunde.Mobilnummer)
+
+                    </div>
+                   
+                </td>
+                <td>
+                    <div class="visModel">
+                        @Html.DisplayFor(model => kunde.Adresse)
+
+                    </div>
+                   
+                </td>
+                <td>
+                    <div class="visModel">
+                        @Html.DisplayFor(model => kunde.Epost)
+                    </div>
+                  
+                </td>
+                <td>
+                    <div class="visModel">
+                        @Html.DisplayFor(model => kunde.Postnummer)
+                    </div>
+                    
+                </td>
+                <td>
+                    <div class="visModel">
+                        @Html.DisplayFor(model => kunde.Poststed)
+                    </div>
+                   
+                </td>
+                <td>
+                    @Html.ActionLink("Endre", "EndreKunde", new { kID = kunde.ID }, new { @class = "endreKnapp btn btn-default", data_status = "endre" })
+                    @Html.ActionLink("Slett", "SlettKunde", new { kID = kunde.ID }, new { @class = "slettKnapp btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+

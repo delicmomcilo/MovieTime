@@ -1,0 +1,55 @@
+﻿@model List<Model.Ordre>
+
+@{
+    ViewBag.Title = "Bestillinger";
+}
+
+<div class="container mt-100 bg-light p-5">
+
+    <div class="py-5 text-center">
+        <h2>Ordreoversikt</h2>
+        <p class="lead">Nedenfor ser du en oversikt over alle orderene du har foretatt deg. Du kan velge å gå inn på en ordre for å laste ned filmen/filmene du har kjøpt, eller<a href="@Url.Action("Filmer", "Film")"> kjøpe andre filmer.</a></p>
+    </div>
+
+
+    <div class="row">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Ordrenummer</th>
+                    <th scope="col">Pris</th>
+                    <th scope="col">Dato</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (Model.Count == 0)
+                    {
+                        <tr>
+                            <td><h5>Du har ikke kjøpt noen filmer</h5></td>
+                        </tr>
+
+                    }
+                    else
+                    {
+                        for (var i = 0; i < Model.Count; i++)
+                        {
+                            <tr>
+                                <th scope="row">@Model[i].ID</th>
+                                <td>kr @Model[i].TotalPris,-</td>
+                                <td>@Html.DisplayFor(modelItem => Model[i].Dato)</td>
+                                <td>
+                                    <a href="@Url.Action("VisOrdre","Ordre", new { ordreID = Model[i].ID })" class="btn btn-success" role="button">Vis Ordre</a>
+
+                                </td>
+                            </tr>
+                      
+                        }
+                    }
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+﻿---------Error Log Start---------- on 22.10.2018 15:22:46<br>
+DBKunde:HentAlle  --  Feil oppstått når HentAlle-metoden prøve å hente alle kundene  --  Exception of type 'System.Exception' was thrown.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 22.10.2018 15:24:39<br>
+DBKunde:HentAlle  --  Feil oppstått når HentAlle-metoden prøve å hente alle kundene  --  Exception of type 'System.Exception' was thrown.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 25.10.2018 02:17:36<br>
+DBFilm:EndreFilm  --  Feil oppstått når en film skulle endres  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 25/10/2018 13:19:40<br>
+DBFilm:EndreFilm  --  Feil oppstått når en film skulle endres  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 25/10/2018 13:54:16<br>
+DBFilm:EndreFilm  --  Feil oppstått når en film skulle endres  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 25/10/2018 13:57:41<br>
+DBFilm:EndreFilm  --  Feil oppstått når en film skulle endres  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 25/10/2018 14:02:19<br>
+DBFilm:EndreFilm  --  Feil oppstått når en film skulle endres  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 25/10/2018 14:02:52<br>
+DBFilm:EndreFilm  --  Feil oppstått når en film skulle endres  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 25/10/2018 14:07:52<br>
+DBFilm:EndreFilm  --  Feil oppstått når en film skulle endres  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 25/10/2018 14:14:26<br>
+DBFilm:EndreFilm  --  Feil oppstått når en film skulle endres  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 25/10/2018 14:15:32<br>
+DBFilm:EndreFilm  --  Feil oppstått når en film skulle endres  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 25/10/2018 14:19:35<br>
+DBFilm:EndreFilm  --  Feil oppstått når en film skulle endres  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 25/10/2018 14:21:30<br>
+DBFilm:EndreFilm  --  Feil oppstått når en film skulle endres  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 27/10/2018 19:48:28<br>
+DBKunde:HentOrdre  --  Feil oppstått når data fra en spesifik ordre skulle hentes  --  Object reference not set to an instance of an object.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 27/10/2018 19:48:44<br>
+DBKunde:HentOrdre  --  Feil oppstått når data fra en spesifik ordre skulle hentes  --  Object reference not set to an instance of an object.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 27/10/2018 19:56:56<br>
+DBKunde:HentOrdre  --  Feil oppstått når data fra en spesifik ordre skulle hentes  --  Object reference not set to an instance of an object.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:11:11<br>
+DBKunde:SlettOrdre  --  Feil oppstått ved sletting av ordre  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:20:37<br>
+DBKunde:SlettOrdre  --  Feil oppstått ved sletting av ordre  --  The specified parameter type 'System.Data.Entity.DynamicProxies.DBKunde_8CB35A1DA6536C2A53999229CBF35707AEB196B35685DF1FFEA51EE58F4BF737' is not valid. Only scalar types, such as System.Int32, System.Decimal, System.DateTime, and System.Guid, are supported.
+Parameter name: item
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:31:46<br>
+DBKunde:SlettOrdre  --  Feil oppstått ved sletting av ordre  --  Collection was modified; enumeration operation may not execute.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:35:12<br>
+DBKunde:SlettOrdre  --  Feil oppstått ved sletting av ordre  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:37:01<br>
+DBKunde:SlettOrdre  --  Feil oppstått ved sletting av ordre  --  An error occurred while saving entities that do not expose foreign key properties for their relationships. The EntityEntries property will return null because a single entity cannot be identified as the source of the exception. Handling of exceptions while saving can be made easier by exposing foreign key properties in your entity types. See the InnerException for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:37:36<br>
+DBKunde:SlettOrdre  --  Feil oppstått ved sletting av ordre  --  Collection was modified; enumeration operation may not execute.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:38:43<br>
+DBKunde:SlettOrdre  --  Feil oppstått ved sletting av ordre  --  Collection was modified; enumeration operation may not execute.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:40:48<br>
+DBKunde:SlettOrdre  --  Feil oppstått ved sletting av ordre  --  Object reference not set to an instance of an object.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:43:03<br>
+DBKunde:SlettOrdre  --  Feil oppstått ved sletting av ordre  --  Collection was modified; enumeration operation may not execute.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:43:16<br>
+DBKunde:SlettOrdre  --  Feil oppstått ved sletting av ordre  --  Collection was modified; enumeration operation may not execute.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:49:44<br>
+DBFilm:HentAlle  --  Feil oppstått når alle filmene skulle hentes  --  Cannot drop database "WEBFILM_40c79f1c3f2e4509975e7fa084da03a5" because it is currently in use.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:55:52<br>
+DBKunde:SlettOrdre  --  Feil oppstått ved sletting av ordre  --  Collection was modified; enumeration operation may not execute.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:58:20<br>
+DBKunde:HentOrdre  --  Feil oppstått når data fra en spesifik ordre skulle hentes  --  Object reference not set to an instance of an object.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28/10/2018 02:58:22<br>
+DBKunde:HentOrdre  --  Feil oppstått når data fra en spesifik ordre skulle hentes  --  Object reference not set to an instance of an object.
+<br>---------Error Log End----------<br><br>
+---------Error Log Start---------- on 28.10.2018 22:59:33<br>
+DBKunde:Endre  --  Feil oppstått når kunde skulle endres  --  An error occurred while updating the entries. See the inner exception for details.  --  An error occurred while updating the entries. See the inner exception for details.
+<br>---------Error Log End----------<br><br>
